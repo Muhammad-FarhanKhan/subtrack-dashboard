@@ -1,0 +1,626 @@
+/* src/components/Navbar/Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--nav-bg, #ffffff);
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left Section: Brand / Logo */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--text-color, #212529);
+  letter-spacing: 0.8px; 
+}
+
+/* Center Section: Navigation Links */
+.nav-center {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color-muted, #6c757d);
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #007bff; /* Primary Blue color for active state */
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Right Section: Actions (Theme, Bell) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative; 
+  flex-shrink: 0;
+}
+
+/* Sun & Moon Switch Styling */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 26px;
+  position: relative;
+  width: 52px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+/* Main Capsule */
+.slider {
+  background-color: #f4f4f5; /* Light mode me capsule background */
+  border: 1px solid #e4e4e7;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.3s;
+  border-radius: 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+}
+
+/* Capsule Background for Dark Mode */
+input:checked + .slider {
+  background-color: #18181b;
+  border-color: #27272a;
+}
+
+/* Icons alignments */
+.icon-sun,
+.icon-moon {
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Moving Knob (Gol Button) */
+.slider:before {
+  background-color: #ffffff;
+  bottom: 2px;
+  content: "";
+  height: 20px;
+  left: 3px;
+  position: absolute;
+  transition: 0.3s;
+  width: 20px;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Knob Background for Dark Mode */
+input:checked + .slider:before {
+  transform: translateX(24px);
+  background-color: #27272a;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bell-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+  color: var(--text-color);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bell-btn:hover {
+  color: #004793;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.bell-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid var(--nav-bg, #ffffff);;
+  background-color: #ef4444;
+  border-radius: 50%;
+}
+
+/* =======================================================
+   REAL-TIME NOTIFICATIONS DROPDOWN MATRIX UI LAYOUTS
+   ======================================================= */
+
+/* ─── LIVE PUSH TOAST POPUP NOTIFICATION ACCENT CONTAINER ─── */
+.live-toast-alert-popup {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background-color: #09090b;
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #27272a;
+  z-index: 9999;
+  max-width: 360px;
+  width: 100%;
+  animation: toast-fade-in-slide-left 0.4s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+@keyframes toast-fade-in-slide-left {
+  0% {
+    transform: translateX(50px) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.toast-accent-line {
+  width: 4px;
+  height: 36px;
+  background-color: #ef4444; /* Dynamic crimson caution pop line */
+  border-radius: 4px;
+}
+
+.toast-content-wrapper-box h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #a1a1aa;
+  margin: 0 0 4px 0;
+}
+
+.toast-content-wrapper-box p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ─── SLIDING SCROLLABLE NOTIFICATIONS PANEL CONTAINER ─── */
+.notifications-dropdown-sheet {
+  position: absolute;
+  top: 65px;
+  right: 0;
+  width: 360px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e4e4e7;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.05),
+    0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  z-index: 1000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-sheet-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e4e4e7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.dropdown-sheet-header h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.notif-count-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.08);
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+/* SCROLLBAR AREA INTERFACING CONTROLS */
+.dropdown-scrollable-content-area {
+  max-height: 320px; /* Locks overflow dimensions scrolling track */
+  overflow-y: auto;
+}
+
+.dropdown-scrollable-content-area::-webkit-scrollbar {
+  width: 5px;
+}
+.dropdown-scrollable-content-area::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+.empty-notif-state-message {
+  padding: 40px;
+  text-align: center;
+  color: #71717a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* INDIVIDUAL ALERTS TILES PARAMETERS */
+.notification-item-card {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f4f4f5;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.notification-item-card:last-child {
+  border-bottom: none;
+}
+
+/* Highlights unread item background textures */
+.unread-item-bg {
+  background-color: #f0f7ff !important;
+}
+
+.notif-item-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.notif-item-title-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.notif-item-time-stamp {
+  font-size: 11px;
+  font-weight: 600;
+  color: #71717a;
+  white-space: nowrap;
+}
+
+.notif-item-desc-para {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ─── DROPDOWN ACTIONS LAYOUT CONTROLS ─── */
+.dropdown-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Clear All Button Flat Premium Base Style */
+.clear-all-notif-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ef4444; /* Soft crisp crimson red */
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+/* Light mode luxury red highlight pop */
+.clear-all-notif-btn:hover {
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* ─── DARK THEME EXTRA STRENGTH NEON ADJUSTMENTS ─── */
+body.dark-theme .clear-all-notif-btn {
+  color: #f87171; /* High visibility neon red on dark mode */
+}
+
+body.dark-theme .clear-all-notif-btn:hover {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  color: #f87171 !important;
+}
+
+/* =======================================================
+   DARK THEME DYNAMIC PANEL TUNING METRICS
+   ======================================================= */
+body.dark-theme .notifications-dropdown-sheet {
+  background-color: #18181b;
+  border-color: #27272a;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .dropdown-sheet-header {
+  background-color: #121214;
+  border-bottom-color: #27272a;
+}
+
+body.dark-theme .dropdown-sheet-header h3 {
+  color: #ffffff;
+}
+
+body.dark-theme .notification-item-card {
+  background-color: #18181b;
+  border-bottom-color: #232326;
+}
+
+body.dark-theme .unread-item-bg {
+  background-color: #0c162d !important; /* Cyber Navy blue unread backdrop */
+}
+
+body.dark-theme .notif-item-title-text {
+  color: #ffffff;
+}
+
+body.dark-theme .notif-item-desc-para {
+  color: #a1a1aa;
+}
+
+body.dark-theme .dropdown-scrollable-content-area::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .navbar {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 50px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  }
+
+  .nav-center {
+    gap: 40px;
+  }
+
+  .nav-link {
+    font-size: 15px;
+    padding: 8px 16px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+  }
+
+  .notifications-dropdown-sheet {
+    width: 380px;
+    top: 70px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .navbar {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 24px 60px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .nav-center {
+    gap: 48px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .notifications-dropdown-sheet {
+    width: 400px;
+    top: 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 16px 24px;
+  }
+
+  .nav-center {
+    gap: 16px;
+  }
+
+  .notifications-dropdown-sheet {
+    width: 340px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .nav-center {
+    width: 100%;
+    justify-content: center;
+    order: 3;
+    border-top: 1px solid var(--border-color, #e4e4e7);
+    padding-top: 12px;
+    gap: 16px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    padding: 6px 10px;
+    text-align: center;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: space-between;
+    order: 2;
+    position: relative;
+  }
+
+  /* FIXED PORTION: Removed full screen fixed overlays constraints tightly */
+  .notifications-dropdown-sheet {
+    position: absolute;
+    top: 45px !important;
+    right: 0 !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 320px !important; /* Fixed crisp compact layout card width */
+    height: auto !important;
+    z-index: 999999;
+  }
+
+  /* Skips the full screen black blur overlay backgrounds logic on mobile completely */
+  .mobile-only-modal-overlay {
+    display: none !important;
+  }
+
+  .dropdown-sheet-main-card {
+    width: 100%;
+    background-color: var(--nav-bg, #ffffff);
+    border-radius: 12px;
+    border: 1px solid var(--border-color, #e4e4e7);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: none;
+  }
+
+  .dropdown-sheet-header {
+    padding: 12px 16px;
+    background-color: #fafafa;
+    border-bottom: 1px solid var(--border-color, #e4e4e7);
+  }
+
+  .dropdown-scrollable-content-area {
+    max-height: 280px;
+    background-color: var(--nav-bg, #ffffff);
+  }
+
+  .notification-item-card {
+    padding: 12px 16px;
+    background-color: var(--nav-bg, #ffffff);
+    border-bottom: 1px solid var(--border-color, #f4f4f5);
+  }
+
+  .notif-item-title-text {
+    font-size: 13px;
+  }
+
+  .notif-item-desc-para {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  /* Extra narrow mobile support adjustment profiles bounds safely */
+  .notifications-dropdown-sheet {
+    width: 290px !important; /* Extra sleek alignment track profile */
+    right: -10px !important;
+  }
+}
+
+body.dark-theme .dropdown-sheet-main-card {
+  background-color: #18181b !important;
+  border: 1px solid #27272a;
+}
+
+body.dark-theme .dropdown-sheet-header {
+  background-color: #121214 !important;
+  border-bottom-color: #27272a;
+}
+
+body.dark-theme .dropdown-scrollable-content-area {
+  background-color: #18181b !important;
+}
+
+body.dark-theme .notification-item-card {
+  background-color: #18181b !important;
+  border-bottom-color: #232326;
+}

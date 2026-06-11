@@ -1,0 +1,262 @@
+/* =======================================================
+   PREMIUM DEEP DARK GRADIENT TILES ARCHITECTURE
+   ======================================================= */
+
+.financial-overview-section {
+  width: 100%;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.stats-grid-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ─── BASE CARDS TRANSITIONS AND GRAPHICS ─── */
+.overview-stat-card {
+  padding: 28px;
+  border-radius: 16px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+
+
+/* Card 1: Monthly Total */
+.card-monthly {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  border: 1px solid #3b82f6; 
+  cursor: pointer;
+}
+
+.card-monthly:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.25);
+}
+
+/* Card 2: Yearly Total  */
+.card-yearly {
+  background: linear-gradient(135deg, #022c22 0%, #064e3b 100%);
+  border: 1px solid #10b981; 
+}
+
+.card-yearly:hover {
+  border-color: #22c55e;
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.2);
+}
+
+/* Card 3: Active Connections  */
+.card-active {
+  background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
+  border: 1px solid #8b5cf6; 
+}
+
+.card-active:hover {
+  border-color: #a855f7;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.25);
+}
+
+.overview-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+.label-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Vector Icons glowing elements dynamic color setup */
+.card-monthly .stat-icon { color: #60a5fa; }
+.card-yearly .stat-icon { color: #34d399; }
+.card-active .stat-icon { color: #a78bfa; }
+
+/* Sharp White Text Labels over deep background */
+.stat-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e4e4e7; 
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* METRICS CAPSULE BADGES STYLINGS */
+.card-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px; 
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: rgba(255, 255, 255, 0.12); /* Glassmorphism badge container look */
+  backdrop-filter: blur(4px);
+}
+
+.card-monthly .card-badge { color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.2); }
+.card-yearly .card-badge { color: #34d399; border: 1px solid rgba(52, 211, 153, 0.2); }
+.card-active .card-badge { color: #a78bfa; border: 1px solid rgba(167, 139, 250, 0.2); }
+
+/* QUANTITY AMOUNT DATA TYPOGRAPHY */
+.stat-amount-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+
+.currency-symbol {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.5; /* Blending symbol contrast */
+}
+
+.stat-value-amount {
+  font-size: 36px;
+  font-weight: 800; 
+  color: #ffffff; /* Sharp crisp pure white font figures */
+  letter-spacing: -1px;
+  word-break: break-all;
+}
+
+.stat-value-amount.no-currency {
+  font-size: 38px;
+}
+
+.card-footer-desc {
+  font-size: 13px;
+  color: #a1a1aa;
+  font-weight: 500;
+}
+
+/* =======================================================
+   2. DARK THEME: HIGH CONTRAST NEON ULTRA DARK ACCENTS
+   ======================================================= */
+   
+/* Dark mode blocks ko mazeed deep, dark charcoal base texture frame data diya hay */
+body.dark-theme .card-monthly {
+  background: linear-gradient(135deg, #1c2650 0%, #0e2356 100%);
+  border: 1px solid #1d4ed8; 
+}
+body.dark-theme .card-monthly:hover {
+  border-color: #3b82f6;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.25); /* Electric Blue Glow Aura */
+}
+
+body.dark-theme .card-yearly {
+  background: linear-gradient(135deg, #0c432d 0%, #054b35 100%);
+  border: 1px solid #047857; 
+}
+body.dark-theme .card-yearly:hover {
+  border-color: #22c55e;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.2); /* Emerald Green Glow Aura */
+}
+
+body.dark-theme .card-active {
+  background: linear-gradient(135deg, #2c1d50 0%, #2b134b 100%);
+  border: 1px solid #6d28d9; 
+}
+body.dark-theme .card-active:hover {
+  border-color: #a855f7;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.25); /* Cyber Purple Glow Aura */
+}
+
+
+
+
+
+@media (min-width: 1441px) {
+  .stats-grid-row {
+    gap: 28px; 
+  }
+  .overview-stat-card {
+    padding: 32px; 
+  }
+  .stat-value-amount {
+    font-size: 40px; 
+  }
+}
+
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .stat-value-amount {
+    font-size: 34px;
+  }
+}
+
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .stats-grid-row {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+  }
+
+  .card-active {
+    grid-column: span 2;
+  }
+}
+
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .stats-grid-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .overview-stat-card {
+    padding: 24px;
+  }
+  .stat-value-amount {
+    font-size: 32px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .stats-grid-row {
+    grid-template-columns: 1fr; 
+    gap: 14px;
+  }
+  .overview-stat-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .stat-amount-wrapper {
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+  .stat-value-amount {
+    font-size: 28px; 
+  }
+  .currency-symbol {
+    font-size: 18px;
+  }
+  .stat-label {
+    font-size: 13px;
+  }
+  .card-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+}

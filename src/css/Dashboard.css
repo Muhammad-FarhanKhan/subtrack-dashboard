@@ -1,0 +1,153 @@
+/* =======================================================
+   DASHBOARD (MAIN LAYOUT)
+   ======================================================= */
+
+/* Main Master Page Wrapper Framework Grid Constraints */
+.dashboard-container {
+  padding: 40px;
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ─── HERO BANNER SECTION ─── */
+.dashboard-hero-banner {
+  position: relative;
+  width: 100%;
+  height: 250px; 
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 2px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Background Image Layer Setup */
+.banner-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35); /* Text readability enhancement */
+  z-index: 1;
+}
+
+/* Content Layout Alignment over Image */
+.banner-overlay-content {
+  position: relative;
+  z-index: 2;
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0 40px;
+  max-width: 750px; 
+}
+
+/* Bold Modern Typography Main Header */
+.header-title {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Subtle Smooth Subtitle Description Text */
+.header-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85); 
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* =======================================================
+    RESPONSIVE MEDIA QUERIES
+   ======================================================= */
+
+
+@media (min-width: 1441px) {
+  .dashboard-container {
+    max-width: 1800px; 
+    padding: 40px 60px;
+  }
+  .dashboard-hero-banner {
+    height: 280px; 
+  }
+  .header-title {
+    font-size: 42px; 
+  }
+}
+
+
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .dashboard-container {
+    max-width: 1800px; 
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .dashboard-container {
+    padding: 30px 24px;
+  }
+  .dashboard-hero-banner {
+    height: 220px;
+    margin-bottom: 30px;
+  }
+  .header-title {
+    font-size: 32px;
+  }
+  .header-subtitle {
+    font-size: 15px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px 16px;
+  }
+  .dashboard-hero-banner {
+    height: 180px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+  }
+  .banner-overlay-content {
+    padding: 0 20px;
+    gap: 8px;
+  }
+  .header-title {
+    font-size: 24px;
+    letter-spacing: -0.2px;
+  }
+  .header-subtitle {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 16px 12px; 
+  }
+  .dashboard-hero-banner {
+    height: 160px;
+    margin-bottom: 20px;
+  }
+  .header-title {
+    font-size: 20px;
+  }
+  .header-subtitle {
+    display: none; 
+  }
+}

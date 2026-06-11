@@ -1,0 +1,303 @@
+.subscriptions-list-section {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  box-sizing: border-box;
+}
+
+.empty-state-card {
+  background-color: var(--nav-bg);
+  padding: 50px;
+  border-radius: 16px;
+  text-align: center;
+  color: var(--text-color-muted);
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.05));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-weight: 500;
+}
+
+.empty-icon {
+  color: var(--text-color-muted);
+  opacity: 0.5;
+}
+
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background-color: var(--nav-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color, #e4e4e7);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+  -webkit-overflow-scrolling: touch;
+}
+
+.subs-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 15px;
+}
+
+.subs-data-table th {
+  padding: 16px 24px;
+  background-color: rgba(0, 0, 0, 0.015);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--text-color-muted);
+  border-bottom: 1px solid var(--border-color, #e4e4e7);
+  white-space: nowrap;
+}
+
+.subs-data-table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-color, #f4f4f5);
+  color: var(--text-color);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.table-data-row:last-child td {
+  border-bottom: none;
+}
+
+.td-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.service-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.service-text-name {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.td-category-cell {
+  color: var(--text-color-muted) !important;
+}
+
+.td-price-cell {
+  font-weight: 700 !important;
+}
+
+.table-cycle-pill {
+  font-size: 13px;
+  background-color: var(--body-bg);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.03));
+}
+
+.status-badge-indicator {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.status-active {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.status-expired {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.delete-row-btn {
+  color: var(--text-color-muted, #71717a);
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: none;
+  border: none;
+}
+
+.delete-row-btn:hover {
+  color: #ef4444; 
+  background-color: rgba(239, 68, 68, 0.08);
+  cursor: pointer;
+}
+
+/* ─── NEW FEATURE: FIXED ACCURATE PAGINATION BAR LAYOUT ─── */
+.table-pagination-navigator-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding: 16px 20px;
+  background-color: var(--nav-bg);
+  border: 1px solid var(--border-color, #e4e4e7);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.pagination-btn-arrow {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-color, #111111);
+  background-color: var(--body-bg, #f4f4f5);
+  border: 1px solid var(--border-color, #e4e4e7);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn-arrow:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.pagination-btn-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pagination-pages-counter-text {
+  font-size: 13px;
+  color: var(--text-color-muted, #71717a);
+}
+
+.pagination-pages-counter-text strong {
+  color: var(--text-color, #111111);
+}
+
+/* =======================================================
+   DARK THEME SYNCHRONIZATION OVERLAYS
+   ======================================================= */
+body.dark-theme .table-responsive-wrapper {
+  background-color: #0f111a;
+  border-color: #27272a;
+}
+
+body.dark-theme .subs-data-table th {
+  background-color: #131522;
+  border-bottom-color: #27272a;
+}
+
+body.dark-theme .subs-data-table td {
+  border-bottom-color: #181a26;
+}
+
+body.dark-theme .table-cycle-pill {
+  background-color: #050608;
+  border-color: #27272a;
+}
+
+body.dark-theme .status-active {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+
+body.dark-theme .status-expired {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+body.dark-theme .empty-state-card {
+  background-color: #0f111a;
+  border-color: #27272a;
+}
+
+body.dark-theme .delete-row-btn:hover {
+  background-color: rgba(239, 68, 68, 0.15);
+}
+
+body.dark-theme .table-pagination-navigator-footer {
+  background-color: #0f111a;
+  border-color: #27272a;
+}
+
+body.dark-theme .pagination-btn-arrow {
+  color: #ffffff;
+  background-color: #18181b;
+  border-color: #27272a;
+}
+
+body.dark-theme .pagination-btn-arrow:hover:not(:disabled) {
+  background-color: #27272a;
+  border-color: #3f3f46;
+  color: #60a5fa;
+}
+
+body.dark-theme .pagination-pages-counter-text strong {
+  color: #ffffff;
+}
+
+/* =======================================================
+   100-YEAR UNIVERSAL HARDWARE DEVICES RESPONSIVE QUERIES
+   ======================================================= */
+
+/* LAYER 1: EXTRA WIDE DESKTOPS / 4K SCREEN MONITORS (1441px to 1920px+) */
+@media (min-width: 1441px) {
+  .subscriptions-list-section {
+    max-width: 1580px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1921px) {
+  .subscriptions-list-section {
+    max-width: 1800px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* LAYER 2: STANDARD TABLETS & SMARTPHONES PANELS */
+@media (max-width: 768px) {
+  .subs-data-table th {
+    padding: 12px 16px;
+    font-size: 11px;
+  }
+  .subs-data-table td {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+  .empty-state-card {
+    padding: 35px 20px;
+  }
+}
+
+/* LAYER 3: COMPACT HANDHELD CELLPHONES (iPhones & Android) */
+@media (max-width: 480px) {
+  .table-pagination-navigator-footer {
+    padding: 12px;
+    gap: 8px;
+  }
+  .pagination-btn-arrow {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .pagination-pages-counter-text {
+    font-size: 11px;
+  }
+}
